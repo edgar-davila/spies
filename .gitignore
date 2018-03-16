@@ -4,3 +4,6 @@ obj/Debug
 *.dll
 spies.userprefs
 shadercompiler-UnityShaderCompiler0.log
+UnityLockfile
+Temp
+Library

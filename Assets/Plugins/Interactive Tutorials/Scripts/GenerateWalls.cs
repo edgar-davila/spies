@@ -34,7 +34,6 @@ public class GenerateWalls : MonoBehaviour
 			for(int j=0;j<matrix[0].Length;j++) {
 				if (matrix[i][j] == 1) {
 					Instantiate(block, getPosition(transform.position,i,j), transform.rotation);
-					//Instantiate(block, getRandomPosition(transform.position), transform.rotation);
 				}
 			}
         }
@@ -44,13 +43,6 @@ public class GenerateWalls : MonoBehaviour
 	{
 		float x = xPos/width * (right - left) + left + xOffset;
 		float z = zPos/height * (top - bottom) + bottom + zOffset;
-		return new Vector3(x, vector3.y, z);
-	}
-
-	private Vector3 getRandomPosition(Vector3 vector3)
-	{
-		float x = Mathf.Floor(Random.value * width)/width * (right - left) + left + xOffset;
-		float z = Mathf.Floor(Random.value * height)/height * (top - bottom) + bottom + zOffset;
 		return new Vector3(x, vector3.y, z);
 	}
 

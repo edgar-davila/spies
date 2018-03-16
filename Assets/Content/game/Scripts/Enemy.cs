@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+		navMeshAgent.SetDestination(patrolPoints[patrolPointIndex].position);
         animator.SetFloat("Forward", navMeshAgent.desiredVelocity.magnitude, 0.1f, Time.deltaTime);
 
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < proximityBeforeChangeDestination)
