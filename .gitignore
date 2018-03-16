@@ -1,1 +1,6 @@
 *.sln
+Library/ShaderCache
+obj/Debug
+*.dll
+spies.userprefs
+shadercompiler-UnityShaderCompiler0.log
