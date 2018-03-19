@@ -7,6 +7,7 @@ public class AnimateGameObjectSwitch : MonoBehaviour
 {
     public GameObject gameObjectToAnimate;
     public float delayInSeconds;
+	public GameObject key;
 
     void OnTriggerEnter(Collider collider)
     {
@@ -14,6 +15,7 @@ public class AnimateGameObjectSwitch : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(Animate());
+			DeleteKey();
         }
     }
 
@@ -23,4 +25,8 @@ public class AnimateGameObjectSwitch : MonoBehaviour
 
         gameObjectToAnimate.GetComponent<Animator>().SetBool("SwitchTriggered", true);
     }
+
+	private void DeleteKey(){
+		Destroy (key);
+	}
 }
