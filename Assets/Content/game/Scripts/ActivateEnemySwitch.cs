@@ -20,7 +20,7 @@ public class ActivateEnemySwitch : MonoBehaviour
     private IEnumerator Animate()
     {
         yield return new WaitForSeconds(delayInSeconds);
-
-        enemy.enabled = true;
+		if (null!=enemy)
+			enemy.enabled = true;
     }
 }
