@@ -4,10 +4,33 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+	public int puntos=0;
+
+	public static bool created;
+
     public GameObject pauseIndicator;
+
+	private static GameController instance;
+
+	public static GameController getInstance(){
+		return instance;
+	}
+
+	public GameObject enemy;
+	public GameObject position;
 
     void Awake()
     {
+		if (!created)
+		{
+			DontDestroyOnLoad(this.gameObject);
+			created = true;
+			instance = this;
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
         pauseIndicator.SetActive(false);
     }
 
@@ -35,8 +58,15 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
+	public void RestartLevel()
+	{
+		puntos = 0;
+		UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+	}
+
+	public void IncreaseLevel()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+		puntos++;
+	}
 }

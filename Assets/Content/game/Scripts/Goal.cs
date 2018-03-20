@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
 {
     public UnityEvent OnWin;
     public GameObject celebrationGameObject;
+	public GameController gameController;
 
     private Camera mainCamera;
 
@@ -43,6 +44,11 @@ public class Goal : MonoBehaviour
             OnWin.Invoke();
             collider.GetComponent<Animator>().SetBool("Win", true);
             collider.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl>().enabled = false;
+			Invoke("LevelUp",1);
         }
     }
+
+	void LevelUp(){
+		GameController.getInstance().IncreaseLevel ();
+	}
 }
